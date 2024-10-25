@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+// esta libreria 'react-hot-toast' con su Componente Toaster es para mostrar pequeñas alertas en la pagina
+// COLOCAMOS EL COMPONENTE DE FORMA GLOBAL PARA QUE PUEDA MOSTRAR EN CUALQUIERA PARTE DE NUESTRO PROYECTO
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="es">
+      <body className={inter.className}>
+        
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }
