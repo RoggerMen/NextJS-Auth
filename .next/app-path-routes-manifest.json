@@ -1,0 +1,1 @@
+{"/_not-found/page":"/_not-found","/(protected)/protected/page":"/protected","/(auth)/login/page":"/login","/(auth)/register/page":"/register","/favicon.ico/route":"/favicon.ico","/page":"/","/api/auth/[...nextauth]/route":"/api/auth/[...nextauth]","/api/users/api/register/route":"/api/users/api/register"}
