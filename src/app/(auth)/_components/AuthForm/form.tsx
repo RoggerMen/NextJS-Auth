@@ -92,6 +92,10 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
         if(data.ok){// Nos muestra un mensaje de EXITO 
         // EL "message" es del "route.ts" de la linea 56 POR SI TODO SALE BIEN NOS MUESTRA ESE MENSAJE DE "Usuario registrado exitosamente"
             toast.success(data.message);
+            
+            router.refresh();
+            router.push("/login");
+            
         }// Y SI POR ALGUN MOTIVO ME DEVUELVE UN ERROR osea si "data.error" EXISTE
         else if(data.error){
             // VAMOS A MOSTRAR EL ERROR QUE VA A SER "data.error" como alerta por el toast que nso va a mostrar en pantalla
