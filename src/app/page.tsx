@@ -3,6 +3,9 @@ import { auth, signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Content from "./(interface)/components/Content";
+
+
 
 // TIENE QUE SER async PORQUE EL "auth()" ES UNA FUNCION ASINCRONA PARA PODER USAR EL "await" 
 export default async function Home() {
@@ -10,7 +13,8 @@ export default async function Home() {
   const session = await auth();
 
   if(session){
-    return (
+    return (<>
+    
       <main>
         <div className="w-full flex flex-col gap-4 items-center justify-center mt-8">
 
@@ -32,7 +36,9 @@ export default async function Home() {
           </Link>
 
         </div>
-      </main>
+        
+        <Content />
+      </main></>
     );
   } else {
     return (
@@ -43,6 +49,7 @@ export default async function Home() {
           <Link className="h-10 rounded-md border border-zinc-950 text-zinc-950 flex items-center justify-center px-6 text-sm" href={'/register'}>Registrate</Link>
         </div>
       </main>
+      
     );
   }
   

@@ -8,6 +8,7 @@
       "static/chunks/app/_not-found/page-1482a4773d6213f3.js"
     ],
     "/layout": [
+<<<<<<< HEAD
       "static/chunks/webpack-56d088442ba9ae75.js",
       "static/chunks/fd9d1056-e53fa63a8bc54379.js",
       "static/chunks/117-5e214855f23592f4.js",
@@ -15,6 +16,17 @@
       "static/css/2ede2264bdf1c879.css",
       "static/chunks/64-d804c41fa0d96f8a.js",
       "static/chunks/app/layout-8454725d7cbe02bf.js"
+=======
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/(interface)/resumeCV/edit/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(interface)/resumeCV/edit/page.js"
+>>>>>>> pruebaWindows
     ],
     "/(protected)/protected/page": [
       "static/chunks/webpack-56d088442ba9ae75.js",
@@ -24,6 +36,7 @@
       "static/chunks/972-721ff5ceee4dc64f.js",
       "static/chunks/app/(protected)/protected/page-ed301c3dd2da1ada.js"
     ],
+<<<<<<< HEAD
     "/(auth)/login/page": [
       "static/chunks/webpack-56d088442ba9ae75.js",
       "static/chunks/fd9d1056-e53fa63a8bc54379.js",
@@ -53,6 +66,17 @@
       "static/chunks/main-app-9995245fa922790d.js",
       "static/chunks/972-721ff5ceee4dc64f.js",
       "static/chunks/app/page-70383a1934d9c931.js"
+=======
+    "/(interface)/overview/edit/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(interface)/overview/edit/page.js"
+    ],
+    "/(interface)/profile/edit/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(interface)/profile/edit/page.js"
+>>>>>>> pruebaWindows
     ]
   }
 }

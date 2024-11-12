@@ -1,1 +1,18 @@
+<<<<<<< HEAD
 {"node":{"30f8637a7eac2bbd8a48273f0a03580813df466c":{"workers":{"app/page":"6020"},"layer":{"app/page":"rsc"}}},"edge":{},"encryptionKey":"GWl11UJqZFfC4hJXwn4VOJhz1XJLJ950RuIiXiu9yzc="}
+=======
+{
+  "node": {
+    "a950066249d94ff3e0503324d05ef9d8330eb581": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Croger%5C%5COneDrive%5C%5CDesktop%5C%5CnextJS-login-auth%5C%5Cnextjs-login-register-auth%5C%5Csrc%5C%5Capp%5C%5Cpage.tsx%22%2C%5B%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "N2rqAKpEg8ca4KFUuf1I9EAqKlWdMZ0euEJczvIujEo="
+}
+>>>>>>> pruebaWindows

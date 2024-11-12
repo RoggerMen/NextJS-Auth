@@ -17,11 +17,16 @@
       "wasm": [],
       "assets": [],
       "env": {
+<<<<<<< HEAD
         "__NEXT_BUILD_ID": "7Hw9tcm1YS8eh9ktkVWyo",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "GWl11UJqZFfC4hJXwn4VOJhz1XJLJ950RuIiXiu9yzc=",
         "__NEXT_PREVIEW_MODE_ID": "ea99d6e48b5c598eb0b4317ad37ffd34",
         "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "6c4966924a6112380ea8f16997178e18e362462dce10010a6be8f6725d0fe446",
         "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b106a15096d406164803cae050974542d6c9276edeab1557af7f653aa7f9b49b"
+=======
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "N2rqAKpEg8ca4KFUuf1I9EAqKlWdMZ0euEJczvIujEo="
+>>>>>>> pruebaWindows
       }
     }
   },

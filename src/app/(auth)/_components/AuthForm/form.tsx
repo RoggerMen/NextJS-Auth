@@ -7,20 +7,11 @@ import { useForm } from 'react-hook-form';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
-// IMPORTAMOS EL ICONO DE UNA LIBRERIA QUE SE INSTALA DE FORMA AUTOMATICA
-// CUANDO INSTALAMOS LO QUE ES "shadcn" ES LA LIBRERIA QUE SE LLAMA "lucide-react"
-// DE AHI PODEMOS IMPORTAR UN MONTON DE ICONOS
 import { ChevronLeft, Loader2 } from 'lucide-react';
-// este es para mostrar alertas
 import toast from 'react-hot-toast';
-// es para hacer consultas a la base de datos OSEA CONECTEN Y HAGA LAS CONSULTAS DE PRISMA
 import axios from 'axios';
 import { Button } from '@/components/ui/button';
-// IMPORTAMOS EL METODO QUE NOS DA LA BIBLIOTECA "next auth"
-// ESTA ES LA FORMA EN LA QUE IMPORTAMOS EL METODO
 import { signIn } from 'next-auth/react';
-// CUANDO NOSOTROS INICIAMOS SESION CORRECTAMENTE VAMOS A REDIRIGIR A LA PERSONA
-// PARA ESO NECESITAMOS IMPORTAR UN "hook" DE NEXTJS QUE ES "useRouter"
 import { useRouter } from 'next/navigation';
 
 // AQUI CREAMOS EL ESQUEMA DE LO QUE VA A SER EL FORMULARIO
@@ -31,70 +22,39 @@ const formSchema = z.object({
 });
 
 
-// AL ULTIMO
-// CREAMOS UN INTERFACE PARA QUE NOS APAREZCA EL INICIAR SESION Y NOS PIDA CORREO Y CONTRASEÑA
-// LO CAMBIAMOS HACIENDO QUE NUESTRO COMPONENTE RECIBA UNA PROPIEDAD 
-// DONDE VA A TENER ESTOS 2 MODOS
-// QUE VA A SER "mode: login || register"
-// QUE VA A SER "login o register"
 interface Props{
     mode: 'login' | 'register';
 }
 
-
-// LO RECIBIMOS AQUI A "mode"
 const AuthForm = ({ mode }: Props) => {
 
     const router = useRouter();
 
-// LUEGO CREAMOS LO QUE VA ALMACENAR NUESTRO USUARIO CON EL HOOK "useForm"
-// Este va a inferir de nuestra variable formSchema 
-// ESTO RECIBE UN "resolver" que va a ser el zodResolver y este va inferirlo de nuestro "formSchema"
-// Esto va a recibir valores por DEFECTO tambien
-// y que el username, email, password van a estar vacios ""
+
 const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-        // COMO EN "formSchema" CON EL "zod" DECIMOS QUE TIENE QUE TENER ALMENOS UN CARACTER LE COLOCAMOS ESTO
-        // DE QUE SI ESTAMOS EN EL FORMULARIO DE REGISTRO QUE ESTO ESTE VACIO
-        // Y SI ESTAMOS EN OTRO QUE NO SEA "register" OSEA "login" NOS MANDE CON UN CARACTER CUALQUIERA PERO QUE ALMENOS TENGO 1 CARACTER DE ACUERDO AL "zod"
-        // AL FINAL NO LO USAMOS PORQUE PARA EL INICIO DE SESION USAMOS EL "email" y "password" PERO LO COLOCAMOS PARA QUE NO NOS GENERE EL ERROR POR EL "zod" QUE NOS DICE QUE TENEMOS QUE TENER ALMENOS 1 CARACTER
         username: mode === "register" ? "" : "a",
         email: "",
         password: ""
     },
 });
-// LUEGO CREAMOS LA FUNCION QUE VA A MANEJAR EL EVENTO DE ENVIO DEL FORMULARIO 
-// ENTONCES LE VAMOS A DECIR QUE VA A RECIBIR VALORES
-// Y QUE LOS VALORES SE CREAN APARTIR DE ZOD 
-// LO CUAL ESTO TAMBIEN LO VA A INFERIR DE NUESTRO formSchema
-const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    // POR EL MOMENTO SOLO MOSTRAMOS EN CONSOLA LOS VALORES
-    //console.log(values);
 
-// SI TODO VA BIEN EJECUTAMOS EN EL TRY NUESTRA LOGICA PARA HACER LA CONSULTA EN NUESTRA "api"
-// ENTONCES AQUI YA ESTAMOS HACIENDO LA PETICION A LA "api"
-// PARA QUE VALIDE SI EL USUARIO EXISTE Y SI NO EXISTE CREA Y SI EXISTE EL USUARIO ME DEVUELVE UN ERROR
+const onSubmit = async (values: z.infer<typeof formSchema>) => {
+
     try {
-        //aplicamos una condicional dependiendo si nos encontramos en el "login" o en el "register"
-        // QUEREMOS QUE SE NOS APLIQUEN 2 CODIGOS DIFERENTES
-        // SI EL MODO ES DE "register" QUE ME EJECUTE EL CODIGO QUE ESTA DENTRO DEL IF
+        
         if (mode === "register"){
-            // ACA HACEMOS UNA CONSULTA
-        // QUE NOS VA A DEVOLVER UN "response"
-        // QUE VA A SER ASINCRONO LA CUAL ESTO NOS VA A SER LA CONSULTA A "/api/users/api/register"
-        // QUE /api/users/api/register ESTO ES DONDE ESTA NUESTRA RUTA con el archivo route.ts
-        // Y LE MANDAMOS LOS VALORES AHI
-        // APLICAMOS DESTRUCTURACION Y VAMOS A OBTENER LOS DATOS DE LA RESPUESTA QUE NOS DARAN EN EL "data"
+
         const {data} = await axios.post("/api/users/api/register", values)
 
-        //Y ACA LE DECIMOS QUE SI TODO SALE BIEN OSEA NOS DEVUELVE UN ok
-        if(data.ok){// Nos muestra un mensaje de EXITO 
-        // EL "message" es del "route.ts" de la linea 56 POR SI TODO SALE BIEN NOS MUESTRA ESE MENSAJE DE "Usuario registrado exitosamente"
+        if(data.ok){
             toast.success(data.message);
-        }// Y SI POR ALGUN MOTIVO ME DEVUELVE UN ERROR osea si "data.error" EXISTE
+            router.refresh();
+            router.push("/login");
+            
+        }
         else if(data.error){
-            // VAMOS A MOSTRAR EL ERROR QUE VA A SER "data.error" como alerta por el toast que nso va a mostrar en pantalla
             toast.error(data.error);
         }
         } else{ // SINO EJECUTAME ESTE CODIGO
@@ -109,24 +69,17 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
                 password: values.password,
             });
 
-            // LUEGO LO MOSTRAMOS EN CONSOLA PARA VERIFICAR LA RESPUESTA QUE NOS DA
-            //console.log(response);
-            //ACA SI ES QUE EL ERROR EXISTE MOSTRAMOS UN MENSAJE DE ERROR COMO ALERT DEL "toast"
+            
             if(response?.error){
                 toast.error("Credenciales no validas");
-                // SI EN TODO CASO ES "response.ok" MOSTRAR UN MENSAJE DE EXITO
             } else if (response?.ok){
                 toast.success("Inicio de Sesión exitoso!");
-                // TODO ESTO LO HACEMOS CON EL "useRouter" PARA NAVEGAR
-                // CON ESTO HAGO REDIRIGIR A LA PAGINA PRINCIPAL
                 router.push("/");
-                // Y ACTUALICE LA PAGINA PARA QUE SE REFRESQUE
                 router.refresh();
             }
         }
     } 
-    // SI DETECTAMOS UN ERROR DURANTE EL PROCESO 
-    // IMPORTAMOS "toast" DE LA LIBRERIA 'react-hot-toast' Y MOSTRAMOS UN ERROR
+
     catch (error) {
         console.error(error); // Agrega un log aquí para más detalles
         toast.error("Algo salio mal vuelve a intentarlo")
@@ -149,13 +102,8 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='w-full max-w-[380px] px-6 py-6 border border-zinc-300 rounded-md space-y-3 '>
 
-{/*DE ACUERDO A LO QUE DA LA "interface Props"
-RENDERIZAMOS EL COMPONENTE DE FORMA CONDICIONAL
-LE DECIMOS QUE SI EL "mode" ESTA EN "register"
-ME MUESTRE "Registrate" SINO QUE ME MUESTRE "Inicia Sesión
-DESPUES PASAMOS LOS DATOS A LAS RUTAS "login" Y "register"*/ }
-            <h2 className='font-mediun text-lg text-center'> {mode === "register" ? "Registrate":"Inicia Sesión"} </h2>
 
+            <h2 className='font-mediun text-lg text-center'> {mode === "register" ? "Registrate":"Inicia Sesión"} </h2>
 
 
             <div>
@@ -199,8 +147,6 @@ DESPUES PASAMOS LOS DATOS A LAS RUTAS "login" Y "register"*/ }
                 />
             </div>
 
-{/* EL BOTON QUE ESTABA AQUI
-*/}
 
 {/*AQUI TOMAMOS EL ESTADO DEL FORMULARIO 
 que va a contener al "form" que creamos al inicio 
@@ -239,7 +185,8 @@ Y SINO ES "register" QUE ENVIE "Iniciando Sesión..."
             Y SI NAVEGAMOS DE UNA RUTA A OTRA*/}
             {mode === "register" ? <>
                 <p>¿Ya tienes una cuenta? <Link className='font-semibold hover:underline transition-all duration-200' href="/login">Inicia Sesión</Link></p>
-                </> : <> <p>¿Aún no tienes una cuenta? <Link className='font-semibold hover:underline transition-all duration-200' href="/register">Registrate</Link></p> </>}
+                </> 
+                : <> <p>¿Aún no tienes una cuenta? <Link className='font-semibold hover:underline transition-all duration-200' href="/register">Registrate</Link></p> </>}
         </div>
     </div>
 

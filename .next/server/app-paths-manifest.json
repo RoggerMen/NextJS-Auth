@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "/_not-found/page": "app/_not-found/page.js",
   "/(protected)/protected/page": "app/(protected)/protected/page.js",
   "/(auth)/login/page": "app/(auth)/login/page.js",
@@ -7,4 +8,11 @@
   "/page": "app/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/api/users/api/register/route": "app/api/users/api/register/route.js"
+=======
+  "/page": "app/page.js",
+  "/(interface)/resumeCV/edit/page": "app/(interface)/resumeCV/edit/page.js",
+  "/(protected)/protected/page": "app/(protected)/protected/page.js",
+  "/(interface)/overview/edit/page": "app/(interface)/overview/edit/page.js",
+  "/(interface)/profile/edit/page": "app/(interface)/profile/edit/page.js"
+>>>>>>> pruebaWindows
 }
