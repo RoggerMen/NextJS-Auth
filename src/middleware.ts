@@ -42,6 +42,8 @@ export default auth(async(req) =>{
     if(!session && pathname === "/protected"){
         //QUIERO QUE NO ME DEJES ENTRAR Y QUE LO REDIRIJAS A UNA NUEVA "url" QUE VA A SER "/login"
         return NextResponse.redirect(new URL("/login", req.url));
+    } else if (!session && pathname === "/overview/edit"){
+        return NextResponse.redirect(new URL("/login", req.url));
     }
 
     // ESTO ES PARA QUE CONTINUE TODO BIEN
