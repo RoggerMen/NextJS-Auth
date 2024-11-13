@@ -1,13 +1,15 @@
-'use client';
+
 import React from 'react';
 
 const OverviewForm = () => {
   
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Overview</h2>
-      <p>Aquí va el contenido de Overview.</p>
-      {/* Agrega formularios o cualquier contenido específico aquí */}
+    <div className="flex justify-center items-center w-full h-full">
+      <div className="bg-white p-6 rounded-lg shadow-lg max-w-6xl w-full mx-6 md:mx-0">
+        <h2 className="text-xl text-center font-semibold mb-6">Overview</h2>
+        <p className='text-center'>Aquí va el contenido de Overview.</p>
+        
+      </div>
     </div>
   );
 };

@@ -1,20 +1,26 @@
-'use client';
 import Link from 'next/link';
 
 const Content = () => {
   return (
-    <div className="ml-64 p-4">
-      <div className="flex space-x-4">
+    <div className="flex-1 flex flex-col items-center">
+      {/* Barra de navegación centrada y adaptable */}
+      <nav className="flex justify-between w-full max-w-lg mb-4 space-x-4">
         <Link href="/overview/edit">
-          <p className="py-2 px-4 bg-gray-700 text-white rounded-lg hover:bg-gray-600">Overview</p>
+          <button className="py-2 px-4 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
+            Overview
+          </button>
         </Link>
         <Link href="/profile/edit">
-          <p className="py-2 px-4 bg-gray-700 text-white rounded-lg hover:bg-gray-600">Profile</p>
+          <button className="py-2 px-4 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
+            Profile
+          </button>
         </Link>
         <Link href="/resumeCV/edit">
-          <p className="py-2 px-4 bg-gray-700 text-white rounded-lg hover:bg-gray-600">Resume/CV</p>
+          <button className="py-2 px-4 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition">
+            Resume/CV
+          </button>
         </Link>
-      </div>
+      </nav>
     </div>
   );
 };

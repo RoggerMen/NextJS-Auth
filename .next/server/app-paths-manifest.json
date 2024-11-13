@@ -1,7 +1,7 @@
 {
   "/page": "app/page.js",
-  "/(interface)/resumeCV/edit/page": "app/(interface)/resumeCV/edit/page.js",
-  "/(protected)/protected/page": "app/(protected)/protected/page.js",
   "/(interface)/overview/edit/page": "app/(interface)/overview/edit/page.js",
-  "/(interface)/profile/edit/page": "app/(interface)/profile/edit/page.js"
+  "/(interface)/profile/edit/page": "app/(interface)/profile/edit/page.js",
+  "/(interface)/resumeCV/edit/page": "app/(interface)/resumeCV/edit/page.js",
+  "/(protected)/protected/page": "app/(protected)/protected/page.js"
 }

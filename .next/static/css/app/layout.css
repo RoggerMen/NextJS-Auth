@@ -573,6 +573,25 @@ video {
 .bottom-0 {
   bottom: 0px;
 }
+.left-0 {
+  left: 0px;
+}
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.mx-60 {
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -587,6 +606,18 @@ video {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.ml-20 {
+  margin-left: 5rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+.mb-60 {
+  margin-bottom: 15rem;
 }
 .block {
   display: block;
@@ -612,6 +643,12 @@ video {
 .h-9 {
   height: 2.25rem;
 }
+.h-full {
+  height: 100%;
+}
+.h-screen {
+  height: 100vh;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -636,6 +673,30 @@ video {
 .max-w-\[380px\] {
   max-width: 380px;
 }
+.max-w-lg {
+  max-width: 32rem;
+}
+.max-w-3xl {
+  max-width: 48rem;
+}
+.max-w-6xl {
+  max-width: 72rem;
+}
+.max-w-7xl {
+  max-width: 80rem;
+}
+.max-w-sm {
+  max-width: 24rem;
+}
+.max-w-xl {
+  max-width: 36rem;
+}
+.max-w-4xl {
+  max-width: 56rem;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
 @keyframes spin {
 
   to {
@@ -645,6 +706,9 @@ video {
 .animate-spin {
   animation: spin 1s linear infinite;
 }
+.flex-row {
+  flex-direction: row;
+}
 .flex-col {
   flex-direction: column;
 }
@@ -653,6 +717,15 @@ video {
 }
 .justify-center {
   justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
 }
 .gap-0\.5 {
   gap: 0.125rem;
@@ -688,6 +761,14 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+.overflow-y-auto {
+  overflow-y: auto;
 }
 .whitespace-nowrap {
   white-space: nowrap;
@@ -758,11 +839,21 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(9 9 11 / var(--tw-bg-opacity));
 }
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
 .p-2 {
   padding: 0.5rem;
 }
 .p-4 {
   padding: 1rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.p-6 {
+  padding: 1.5rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -791,6 +882,10 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .text-center {
   text-align: center;
@@ -888,6 +983,11 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .duration-200 {
   transition-duration: 200ms;
 }
@@ -968,6 +1068,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(24 24 27 / var(--tw-text-opacity));
 }
+.hover\:text-blue-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
+}
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
@@ -990,6 +1094,10 @@ video {
 .active\:bg-blue-700:active {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+.active\:bg-blue-800:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
 }
 .disabled\:pointer-events-none:disabled {
   pointer-events: none;
@@ -1084,8 +1192,26 @@ video {
     top: 0px;
   }
 
+  .md\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .md\:mx-8 {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .md\:ml-20 {
+    margin-left: 5rem;
+  }
+
   .md\:h-full {
     height: 100%;
+  }
+
+  .md\:h-screen {
+    height: 100vh;
   }
 
   .md\:w-16 {
@@ -1094,6 +1220,14 @@ video {
 
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:w-20 {
+    width: 5rem;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   .md\:flex-col {

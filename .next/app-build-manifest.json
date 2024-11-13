@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/(auth)/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/(auth)/login/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -11,15 +11,10 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(interface)/resumeCV/edit/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(interface)/resumeCV/edit/page.js"
-    ],
-    "/(protected)/protected/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(protected)/protected/page.js"
+      "static/chunks/app/page.js"
     ],
     "/(interface)/overview/edit/page": [
       "static/chunks/webpack.js",
@@ -30,6 +25,16 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(interface)/profile/edit/page.js"
+    ],
+    "/(interface)/resumeCV/edit/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(interface)/resumeCV/edit/page.js"
+    ],
+    "/(protected)/protected/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(protected)/protected/page.js"
     ]
   }
 }
