@@ -1,4 +1,4 @@
-// File: /Users/rogger/Desktop/Login-Auth-NextJS/NextJS-Auth/src/app/layout.tsx
+// File: C:\Users\roger\OneDrive\Desktop\nextJS-login-auth\nextjs-login-register-auth\src\app\layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -1,6 +1,7 @@
 
 import { auth, signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
+import { Session } from "inspector/promises";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
@@ -15,7 +16,7 @@ export default async function Home() {
         <div className="w-full flex flex-col gap-4 items-center justify-center mt-8">
 
           <p className="font">
-            Hola, <strong>{session.user?.name}</strong>
+            Hola, <strong>{session.user?.name }</strong>
           </p>
 
           <form action={async() => {

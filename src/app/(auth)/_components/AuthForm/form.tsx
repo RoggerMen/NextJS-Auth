@@ -13,6 +13,7 @@ import axios from 'axios';
 import { Button } from '@/components/ui/button';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import GoogleSignInButton from './GoogleSignInButton';
 
 const formSchema = z.object({
     username: z.string().min(1, {message: "Campo Obligatorio"}),
@@ -141,7 +142,10 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
         <>
         <div className='flex justify-center items-center'>
 <button type="submit" className='w-full bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700 py-2 px-4 rounded-lg shadow-lg transition-all w-32'>{mode === "register" ? "Registrar" : "Iniciar Sesión"}</button>
+
 </div> 
+{mode == "register" ? <GoogleSignInButton>Register with Google</GoogleSignInButton> : 
+    <GoogleSignInButton>Sign in with Google</GoogleSignInButton>}
         </>}
     </div>
 
