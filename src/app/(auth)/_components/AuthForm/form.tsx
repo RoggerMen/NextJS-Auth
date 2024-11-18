@@ -141,7 +141,7 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
         </> :
         <>
         <div className='flex justify-center items-center'>
-<button type="submit" className='w-full bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700 py-2 px-4 rounded-lg shadow-lg transition-all w-32'>{mode === "register" ? "Registrar" : "Iniciar Sesión"}</button>
+<button type="submit" className='w-full bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700 py-2 px-4 rounded-lg shadow-lg transition-all'>{mode === "register" ? "Registrar" : "Iniciar Sesión"}</button>
 
 </div> 
 {mode == "register" ? <GoogleSignInButton>Register with Google</GoogleSignInButton> : 
