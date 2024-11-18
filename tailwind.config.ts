@@ -18,7 +18,19 @@ const config: Config = {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
-  		colors: {}
+  		colors: {
+			black: {
+       100: "#dae7fc",
+       200: "#b4cff8",
+       300: "#8fb8f5",
+       400: "#69a0f1",
+       500: "#4488ee",
+       600: "#366dbe",
+       700: "#29528f",
+       800: "#1b365f",
+       900: "#0e1b30"
+},
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
