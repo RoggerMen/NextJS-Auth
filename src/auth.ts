@@ -39,7 +39,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         // ACA TAMBIEN LO TOMAMOS COMO UN "string" A EL "password"
         // EL METODO "compare" LO QUE HACE ES COMPARAR EL password credentials como "string" QUE ESTAMOS PASANDO CON EL PASWARD HASHEADO QUE VIENE A SER "user.password" que viene de la base de datos
         // Y SI LAS CONTRASEÑAS COINCIDEN DEVUELVE TRUE Y SI NO DEVUELVEN FALSE
-        const correctPassword = await bcrypt.compare(credentials?.password as string, user.password)
+        const correctPassword = await bcrypt.compare(credentials?.password as string, user.password as string)
 
         // ACA LE VAMOS A DECIR QUE SI LA CONTRASEÑA ES CORRECTA ( PODEMOS DEVOLVER AL USUARIO COMPLETO) PERO EN ESTE CASO ME VAS A DEVOLVER EL "id del usuario", el "email del usuario" y el "nombre del usuario"
         if(correctPassword){
